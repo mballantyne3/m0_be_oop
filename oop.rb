@@ -44,18 +44,13 @@ class Dragon
     @rider = rider
     @color = color
     @is_hungry = is_hungry
-    if @is_hungry
-      @amount_of_hunger = 4
-    else
-      @amount_of_hunger = 0
-    end
+    @amount_of_hunger = 0
+    @amount_of_hunger = 4 if @is_hungry
   end
 
   def eat
     @amount_of_hunger -= 1
-    if @amount_of_hunger <= 0
-      @is_hungry = false
-    end
+    @is_hungry = @amount_of_hunger <= 0
   end
 end
 
