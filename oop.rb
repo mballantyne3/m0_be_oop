@@ -44,7 +44,7 @@ class Dragon
     @rider = rider
     @color = color
     @is_hungry = is_hungry
-    if is_hungry
+    if @is_hungry
       @amount_of_hunger = 4
     else
       @amount_of_hunger = 0
@@ -52,10 +52,12 @@ class Dragon
   end
 
   def eat
-    @amount_of_hunger = @amount_of_hunger - 1
-
+    @amount_of_hunger -= 1
+    if @amount_of_hunger <= 0
+      @is_hungry = false
+    end
   end
-  end
+end
 
 
 Dragon.new(name: "Henry", rider: "Mary", color: "Vantablack")
